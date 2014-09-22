@@ -15,7 +15,12 @@ username = raw_input("Username: ")
 password = getpass.getpass("Password: ")
 
 while True:
-	driver = webdriver.PhantomJS('C:\phantomjs-1.9.7-windows\phantomjs.exe')
+	# Loading PhantomJS on UNIX
+	driver = webdriver.PhantomJS()
+	
+	# Loading PhantomJS on Windows
+	#driver = webdriver.PhantomJS('C:\phantomjs-1.9.7-windows\phantomjs.exe')
+
 	try:
 		driver.get("http://ent.unr-runn.fr/uPortal/")
 		select = Select(driver.find_element_by_name('user_idp'))
